@@ -38,9 +38,12 @@ gem 'bcrypt', '~> 3.1.7'
 #Admin panel
 gem 'activeadmin', '~> 1.0.0.pre2'
 
+#Add images to items
+gem 'carrierwave'
 
+#Add catalog examples
 
-
+gem 'faker'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -2,12 +2,13 @@ Rails.application.routes.draw do
 
 
 
-
+  resources :items
 
   devise_for :users
   get 'persons/profile'
   get 'persons/profile', as: 'user_root'
   root  'items#index'
+  match '/new',  to: 'items#new', via: 'get'
 
 
 
