@@ -28,6 +28,7 @@ class CategoriesController < ApplicationController
       self.parent_id = @category.id
   end
 
+
   private
 
   def category_params

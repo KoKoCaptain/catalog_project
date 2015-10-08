@@ -1,12 +1,21 @@
-<h1>Here will be my catalog!</h1>
+<h1> Categories </h1>
 
 
 <ul class="items">
   <% @categories.each do |category| %>
-      <li>
-        <%= category.name %>    </br>
-        <%= category.parent_id %>
-      </li>
-      </br>
+    <li>
+      <p> Category name: </p> <%= category.name %>
+      <p> Parent Category: </p>
+        <% @categories.each do |f| %>
+          <% if (category.parent_id == f.id) %>
+            <%= f.name %>
+          <% end %>
+
+
+        <% end %>
+      <% if (category.parent_id.nil?) %>
+          <p> This category doesn't have parent categories. </p>
+      <% end %>
   <% end %>
+  </li>
 </ul>
