@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
   attr_accessor :parent_id
 
   def show
+    @categories = Category.all
     @category = Category.find(params[:id])
   end
 
