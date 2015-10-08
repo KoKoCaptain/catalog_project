@@ -1,0 +1,12 @@
+<%= form_for(@category) do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.select(:parent_id, options_from_collection_for_select(Category.all, :parent_id, :add_parent_id),
+                 {include_blank: 'None'}, {:class => 'form-control'}) %>
+
+
+
+    <%= f.submit 'Create new category!', class: 'btn btn-large btn-primary' %>
+<% end %>

@@ -5,6 +5,4 @@ class PersonsController < ApplicationController
   end
 
 
-
-
 end

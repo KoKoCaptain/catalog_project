@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
 
 
-
   resources :items
+  resources :categories
 
   devise_for :users
   get 'persons/profile'
   get 'persons/profile', as: 'user_root'
-  root  'items#index'
-  match '/new',  to: 'items#new', via: 'get'
-
+  root 'items#index'
+  match '/item/new', to: 'items#new', via: 'get'
+  match '/categories', to: 'categories#index', via: 'get'
+  match '/category/new', to: 'categories#new', via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,12 @@
+<h1>Here will be my catalog!</h1>
+
+
+<ul class="items">
+  <% @categories.each do |category| %>
+      <li>
+        <%= category.name %>    </br>
+        <%= category.parent_id %>
+      </li>
+      </br>
+  <% end %>
+</ul>
