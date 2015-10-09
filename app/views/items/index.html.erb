@@ -7,6 +7,15 @@
         <%= item.name %>
         <%= item.avatar %>
         <%= item.description %>
+        <p> Category: </p>
+            <% @categories.each do |c| %>
+            <% if item[:category_id] == c.id   %>
+                <%= c.name %>
+            <% end %>
+        <% end %>
+        <% if item[:category_id].nil? %>
+            <p> This item doesn't have category. </p>
+        <% end %>
       </li>
       </br>
   <% end %>

@@ -6,11 +6,10 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def items
-    @items = Item.all
-  end
 
   def index
+    @categories = Category.all
+    @items = Item.all
     @items = Category.find(params[:category_id]).items if params[:category_id]
   end
 

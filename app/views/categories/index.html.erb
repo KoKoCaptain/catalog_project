@@ -7,13 +7,13 @@
       <p> Category name: </p> <%= category.name %>
       <p> Parent Category: </p>
         <% @categories.each do |f| %>
-          <% if (category.parent_id == f.id) %>
+          <% if category.parent_id == f.id %>
             <%= f.name %>
           <% end %>
 
 
         <% end %>
-      <% if (category.parent_id.nil?) %>
+      <% if category.parent_id.nil? %>
           <p> This category doesn't have parent categories. </p>
       <% end %>
   <% end %>
