@@ -1,9 +1,10 @@
 <%=flash.now[:success] = 'New category created!' %>
 <h3>Category name: </h3>  <%= @category.name %> </br>
-<h3>Parent category:</h3>
+
 
 <% @categories.each do |f| %>
     <% if (@category.parent_id == f.id) %>
+        <h3>Parent category: </h3>
         <%= f.name %>
     <% end %>
 <% end %>

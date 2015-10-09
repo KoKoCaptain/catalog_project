@@ -1,11 +1,17 @@
 class ItemsController < ApplicationController
 
+
+
   def show
     @item = Item.find(params[:id])
   end
 
-  def index
+  def items
     @items = Item.all
+  end
+
+  def index
+    @items = Category.find(params[:category_id]).items if params[:category_id]
   end
 
   def new

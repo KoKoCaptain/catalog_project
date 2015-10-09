@@ -24,9 +24,7 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def add_parent_id
-      self.parent_id = @category.id
-  end
+
 
 
   private
