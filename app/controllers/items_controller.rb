@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
   def create
    # @category = Category.find(params[:id])
     @item = Item.new(item_params)
+    @item.categories = Category.where(id: params[:item][:categories]) # should be right
    # @item.categories = @category
     if @item.save
       redirect_to @item

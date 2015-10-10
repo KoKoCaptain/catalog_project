@@ -8,9 +8,9 @@
         <%= item.avatar %>
         <%= item.description %>
         <p> Category: </p>
-            <% @categories.each do |c| %>
-            <% if item[:category_id] == c.id   %>
-                <%= c.name %>
+            <% @categories.each do |category| %>
+            <% if item.categories(params[:category_id]) == category.id  %> # idk how display category name
+                <%= category.name %>
             <% end %>
         <% end %>
         <% if item[:category_id].nil? %>
