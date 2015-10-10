@@ -18,7 +18,9 @@ class ItemsController < ApplicationController
   end
 
   def create
+   # @category = Category.find(params[:id])
     @item = Item.new(item_params)
+   # @item.categories = @category
     if @item.save
       redirect_to @item
     else
