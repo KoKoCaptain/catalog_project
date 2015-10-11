@@ -8,9 +8,9 @@ class ItemsController < ApplicationController
 
 
   def index
-    @categories = Category.all
     @items = Item.all
-    @items = Category.find(params[:category_id]).items if params[:category_id]
+    @items = Item.find(params[:category_id]).items if params[:category_id]
+    #@items = Item.includes(:categories).all
   end
 
   def new

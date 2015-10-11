@@ -3,20 +3,20 @@
 
 <ul class="items">
   <% @items.each do |item| %>
-      <li>
-        <%= item.name %>
-        <%= item.avatar %>
-        <%= item.description %>
+    <li>
+      <%= item.name %>
+      <%= item.avatar %>
+      <%= item.description %>
+      <% if item.categories.any? %>
         <p> Category: </p>
-            <% @categories.each do |category| %>
-            <% if item.categories(params[:category_id]) == category.id  %> # idk how display category name
-                <%= category.name %>
-            <% end %>
-        <% end %>
-        <% if item[:category_id].nil? %>
-            <p> This item doesn't have category. </p>
+        <p>
+          <% item.categories.each do |category| %>
+            <% link_to category.name, category_path(category) %>
+          <% end %>
+        </p>
+        <% else %>
+          <p> This item doesn't have category! </p>
         <% end %>
       </li>
-      </br>
   <% end %>
 </ul>
