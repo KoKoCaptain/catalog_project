@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.categories.build
+    @item.item_categories.build
   end
 
   #def category_id
@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.categories.build
+    @item.item_categories.build
     #@category = Category.find(params[:id])
     #@item.save!
     #@item.add_category_to_item
@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :avatar, :description, categories_attributes: [ :id, :name ])
+    params.require(:item).permit(:name, :avatar, :description, item_categories_attributes: [:category_id])
   end
 
 
