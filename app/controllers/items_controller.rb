@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   # Я помню, что закомментированный код не должен попадать в Git, позже уберу)
 
   def create
-    @item = Item.new(item_params)
+    @item = Item.new(item_params)  #:name, :avatar, :description, :category_id
     @item.item_categories.build
     #@category = Category.find(params[:id])
     #@item.save!
@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
 
   private
 
-  def item_params
+  def item_params                                        # category_id должно передваться в параметры, но не хочет..
     params.require(:item).permit(:name, :avatar, :description, item_categories_attributes: [:category_id])
   end
 
