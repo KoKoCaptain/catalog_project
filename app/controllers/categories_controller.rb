@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-
   attr_accessor :parent_id
 
   def show
