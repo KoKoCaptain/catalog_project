@@ -10,11 +10,19 @@
           <% if category.parent_id == f.id %>
             <%= f.name %>
           <% end %>
-
-
         <% end %>
       <% if category.parent_id.nil? %>
           <p> This category doesn't have parent categories. </p>
+      <% end %>
+      <p> Items: </p>
+      <% if category.items.any? %>
+          <p>
+            <% category.items.each do |item| %>
+                <%= link_to item.name, item_path(item) %>
+            <% end %>
+          </p>
+      <% else %>
+          <p> This category doesn't have items! </p>
       <% end %>
   <% end %>
   </li>

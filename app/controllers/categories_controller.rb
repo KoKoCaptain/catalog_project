@@ -16,15 +16,13 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
+
     if @category.save
       redirect_to @category
     else
       render '/'
     end
   end
-
-
-
 
   private
 
