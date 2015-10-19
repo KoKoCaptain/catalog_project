@@ -1,1 +1,16 @@
-<%= @item.name %>, <%= @item.description %>z
+<p>Item name:</p>
+<%= @item.name %><br>
+<%= image_tag(@item.item_image) if @item.item_image? %><br>
+<p>Description:</p>
+<%= @item.description %><br>
+
+<% if @item.categories.any? %>
+    <p> Category: </p>
+    <p>
+      <% @item.categories.each do |category| %>
+          <%= link_to category.name, category_path(category) %>
+      <% end %>
+    </p>
+<% else %>
+    <p> This item doesn't have category! </p>
+<% end %>

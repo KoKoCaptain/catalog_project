@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
 
   def index
-    @items = Item.all
+    @items = Item.paginate(page: params[:page])
     @items = Item.find(params[:category_id]).items if params[:category_id]
   end
 
@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.item_image = params[:file]
     @item.categories = Category.where(id: params[:item][:categories])
     if @item.save
       redirect_to @item
@@ -27,7 +28,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params                                        # category_id должно передваться в параметры, но не хочет..
-    params.require(:item).permit(:name, :avatar, :description)
+    params.require(:item).permit(:name, :item_image, :description)
   end
 
 

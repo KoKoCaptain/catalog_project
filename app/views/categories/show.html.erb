@@ -1,21 +1,22 @@
 <%=flash.now[:success] = 'New category created!' %>
-<h3>Category name: </h3>  <%= @category.name %> </br>
+<h3>Category name: </h3>  <%= @category.name %> <br>
 
 
-<% @categories.each do |f| %>
-    <% if @category.parent_id == f.id %>
+
+    <% if @category.parent_id.nil? %>
+        <h4> This category doesn't have parent category.</h4><br>
+    <% else %>
         <h3>Parent category: </h3>
-        <%= f.name %>
+        <%= @category.name %>
     <% end %>
 
-    <% if f.items.any? %>
+    <% if @category.items.any? %>
         <p> Items: </p>
     <p>
-      <% f.items.each do |item| %>
+      <% @category.items.each do |item| %>
           <%= link_to item.name, item_path(item) %>
       <% end %>
     </p>
     <% else %>
         <p> This category doesn't have items! </p>
     <% end %>
-<% end %>

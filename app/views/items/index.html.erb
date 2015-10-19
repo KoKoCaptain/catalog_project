@@ -1,12 +1,14 @@
 <h1>Here will be my catalog!</h1>
 
-
+<%= will_paginate %>
 <ul class="items">
   <% @items.each do |item| %>
     <li>
-      <%= item.name %>
-      <%= item.avatar %>
-      <%= item.description %>
+      <p>Item name:</p>
+      <%= link_to item.name, item_path(item) %> <br>
+      <%= image_tag(item.item_image) if item.item_image? %><br>
+      <p>Description:</p>
+      <%= item.description %><br>
       <% if item.categories.any? %>
         <p> Category: </p>
         <p>
@@ -20,3 +22,4 @@
       </li>
   <% end %>
 </ul>
+<%= will_paginate %>

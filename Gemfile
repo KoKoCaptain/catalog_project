@@ -35,6 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 
 
+
 #Admin panel
 gem 'activeadmin', '~> 1.0.0.pre2'
 
