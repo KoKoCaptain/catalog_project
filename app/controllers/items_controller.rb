@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @comments = @item.comments.paginate(page: params[:page])
+    @comment = @item.comments.build if signed_in?
   end
 
 
@@ -27,7 +29,7 @@ class ItemsController < ApplicationController
 
   private
 
-  def item_params                                        # category_id должно передваться в параметры, но не хочет..
+  def item_params                                        
     params.require(:item).permit(:name, :item_image, :description)
   end
 

@@ -14,3 +14,15 @@
 <% else %>
     <p> This item doesn't have category! </p>
 <% end %>
+
+<h3>Add your comment to item: </h3>
+<%= render 'shared/comment_form' %>
+<div class="span8">
+  <% if @item.comments.any? %>
+      <h3>Comments (<%= @item.comments.count %>)</h3>
+      <ol class="comments">
+        <%= render @comments %>
+      </ol>
+      <%= will_paginate @comments %>
+  <% end %>
+</div>

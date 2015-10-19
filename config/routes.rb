@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   end
   resources :items
   resources :categories
+  resources :comments, only: [:create, :destroy]
+  resources :items do
+    resources :comments
+  end
 
   devise_for :users
   get 'persons/profile'
@@ -13,7 +17,8 @@ Rails.application.routes.draw do
   match '/item/new', to: 'items#new', via: 'get'
   match '/categories', to: 'categories#index', via: 'get'
   match '/category/new', to: 'categories#new', via: 'get'
-
+  match '/comments', to: 'comments#index', via: 'get'
+  match '/comment/new', to: 'comments#new', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
