@@ -15,7 +15,14 @@
     <p> This item doesn't have category! </p>
 <% end %>
 
+#show.html.erb
+<%= ratings_for @item %>
 
+#To display static stars:
+<%= ratings_for @item, :static %>
+
+#To display the ratings for a dimension:
+<%= ratings_for @item, :dimension => :speed %>
 
 <h3>Add your comment to item: </h3>
 <%= render 'shared/comment_form' %>

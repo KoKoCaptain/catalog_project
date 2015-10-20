@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
   private
 
   def current_item
-    @current_item = Item.find_by(params[:id])
+    @current_item = Item.find(params[:item_id])
   end
 
   def comment_params

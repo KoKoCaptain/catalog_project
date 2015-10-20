@@ -1,7 +1,6 @@
 class Item < ActiveRecord::Base
   mount_uploader :item_image, ItemImageUploader
 
-
   has_many :item_categories, dependent: :destroy
   has_many :categories, through: :item_categories
   has_many :comments, dependent: :destroy
