@@ -1,3 +1,4 @@
+script/generate ajaxful_rating User
 == README
 
 My own catalog

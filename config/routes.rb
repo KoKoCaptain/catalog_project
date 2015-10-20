@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :categories do
     resources :items
   end
@@ -19,6 +22,7 @@ Rails.application.routes.draw do
   match '/category/new', to: 'categories#new', via: 'get'
   match '/comments', to: 'comments#index', via: 'get'
   match '/comment/new', to: 'comments#new', via: 'get'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -33,5 +33,4 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :item_image, :description)
   end
 
-
 end
